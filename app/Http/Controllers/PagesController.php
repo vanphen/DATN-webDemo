@@ -12,7 +12,7 @@ use App\Pro_detail;
 use App\News;
 use App\Oders;
 use App\Oders_detail;
-use DB,Cart,Datetime;
+use DB,Cart,DateTime;
 
 class PagesController extends Controller
 {
@@ -100,7 +100,7 @@ class PagesController extends Controller
         $oder->note = $rq->txtnote;
         $oder->status = 0;
         $oder->type = 'cod';
-        $oder->created_at = new datetime;
+        $oder->created_at = new \DateTime;
         $oder->save();
         $o_id =$oder->id;
 
@@ -109,7 +109,7 @@ class PagesController extends Controller
            $detail->pro_id = $row->id;
            $detail->qty = $row->qty;
            $detail->o_id = $o_id;
-           $detail->created_at = new datetime;
+           $detail->created_at = new \DateTime;
            $detail->save();
         }
         Cart::destroy();   
