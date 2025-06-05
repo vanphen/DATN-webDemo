@@ -10,6 +10,23 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
+## Requirements
+
+- PHP >= 5.5.9
+- Composer
+- Node.js and Gulp (optional for asset compilation)
+
+## Setup
+
+1. Copy `.env.example` to `.env`.
+2. Run `composer install`.
+3. Run `php artisan key:generate`.
+4. Configure your database connection in `.env`.
+5. Run `php artisan migrate` or import `database/myshop.sql`.
+6. (Optional) Run `npm install` and `gulp` to compile assets.
+7. Start the development server with `php artisan serve`.
+
+
 ## Official Documentation
 
 Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
