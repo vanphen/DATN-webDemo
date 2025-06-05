@@ -38,7 +38,7 @@ class NewsController extends Controller
     	$n->full = $rq->txtFull;
     	$n->cat_id = $rq->sltCate;
     	$n->user_id = Auth::guard('admin')->user()->id;
-    	$n->created_at = new datetime;
+    	$n->created_at = new \DateTime;
 
     	$f = $rq->file('txtimg')->getClientOriginalName();
     	$filename = time().'_'.$f;
@@ -67,7 +67,7 @@ class NewsController extends Controller
     	$n->full = $rq->txtFull;
     	$n->cat_id = $rq->sltCate;
     	$n->user_id = Auth::guard('admin')->user()->id;
-    	$n->created_at = new datetime;
+    	$n->created_at = new \DateTime;
 
     	$file_path = public_path('uploads/news/').$n->images;
     	 if ($rq->hasFile('txtimg')) {

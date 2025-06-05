@@ -61,7 +61,7 @@ class ProductsController extends Controller
     	$pro->price = $rq->txtprice;
     	$pro->cat_id = $rq->sltCate;
     	$pro->user_id = Auth::guard('admin')->user()->id;
-    	$pro->created_at = new datetime;
+    	$pro->created_at = new \DateTime;
     	$pro->status = '1';
     	$f = $rq->file('txtimg')->getClientOriginalName();
     	$filename = time().'_'.$f;
@@ -106,7 +106,7 @@ class ProductsController extends Controller
             $detail->note= 'Không có';
         }
 
-    	$detail->created_at = new datetime;
+    	$detail->created_at = new \DateTime;
     	$detail->save();    	
 
     	if ($rq->hasFile('txtdetail_img')) {
@@ -117,7 +117,7 @@ class ProductsController extends Controller
     				$name_img= time().'_'.$row->getClientOriginalName();
     				$img_detail->images_url = $name_img;
     				$img_detail->pro_id = $pro_id;
-    				$img_detail->created_at = new datetime;
+    				$img_detail->created_at = new \DateTime;
     				$row->move('uploads/products/details/',$name_img);
     				$img_detail->save();
     			}
@@ -183,7 +183,7 @@ class ProductsController extends Controller
         $pro->price = $rq->txtprice;
         $pro->cat_id = $rq->sltCate;
         $pro->user_id = Auth::guard('admin')->user()->id;
-        $pro->updated_at = new datetime;
+        $pro->updated_at = new \DateTime;
         $pro->status = '1';
         $file_path = public_path('uploads/products/').$pro->images;        
         if ($rq->hasFile('txtimg')) {
@@ -221,7 +221,7 @@ class ProductsController extends Controller
             $pro->pro_details->pin = $rq->txtPin;
         }
         $pro->pro_details->os = $rq->txtOs;
-        $pro->pro_details->updated_at = new datetime;        
+        $pro->pro_details->updated_at = new \DateTime;        
 
         if ($rq->hasFile('txtdetail_img')) {
             $detail = Detail_img::where('pro_id',$id)->get();
@@ -242,7 +242,7 @@ class ProductsController extends Controller
                     $name_img= time().'_'.$row->getClientOriginalName();
                     $img_detail->images_url = $name_img;
                     $img_detail->pro_id = $id;
-                    $img_detail->created_at = new datetime;
+                    $img_detail->created_at = new \DateTime;
                     $row->move('uploads/products/details/',$name_img);
                     $img_detail->save();
                 }

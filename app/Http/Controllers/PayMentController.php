@@ -81,7 +81,7 @@ class PayMentController extends Controller
                 $oder->status = 1;
                 $oder->type = 'paypal';
                 $oder->note = $result->id;
-                $oder->created_at = new datetime;
+                $oder->created_at = new \DateTime;
                 $oder->save();
                 $o_id =$oder->id;
 
@@ -90,7 +90,7 @@ class PayMentController extends Controller
                    $detail->pro_id = $row->id;
                    $detail->qty = $row->qty;
                    $detail->o_id = $o_id;
-                   $detail->created_at = new datetime;
+                   $detail->created_at = new \DateTime;
                    $detail->save();
                 } 
             Cart::destroy();   
